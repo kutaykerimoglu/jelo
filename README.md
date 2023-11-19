@@ -1,6 +1,6 @@
 # Jelo
 
-The Jelo is a Java implementation of the Elo rating system, providing a straightforward and customizable solution for calculating and updating player ratings after head-to-head matches. This implementation allows users to set parameters such as the `K_FACTOR` and `DIFFERENCE_CONSTANT`, providing flexibility for different rating scenarios.
+Jelo is a Java implementation of the Elo rating system, providing a straightforward and customizable solution for calculating and updating player ratings after head-to-head matches. This implementation allows users to set parameters such as the `K_FACTOR` and `DIFFERENCE_CONSTANT`, providing flexibility for different rating scenarios.
 
 ## Overview
 
