@@ -42,9 +42,9 @@ public class SimpleEloEngine {
         double evElo1 = calculateExpectedOutput(elo1, elo2);
         double evElo2 = calculateExpectedOutput(elo2, elo1);
         double updatedElo1 =  elo1 + K_FACTOR * (elo1Outcome - evElo1);
-        assertEloGreaterThan0(updatedElo1);
+        updatedElo1 = getZeroIfUpdatedEloIsLessThan0(updatedElo1);
         double updatedElo2 =  elo2 + K_FACTOR * (elo2Outcome - evElo2);
-        assertEloGreaterThan0(updatedElo2);
+        updatedElo2 = getZeroIfUpdatedEloIsLessThan0(updatedElo2);
         return new int[] {(int) updatedElo1, (int) updatedElo2};
     }
 
@@ -60,14 +60,13 @@ public class SimpleEloEngine {
     }
 
     /**
-     * Ensures that the Elo rating is greater than or equal to 0.
+     * Ensures that the updated Elo rating is greater than or equal to 0.
+     * If the calculated updated Elo rating is less than 0, it is set to 0 to maintain a non-negative value.
      *
-     * @param elo the Elo rating to be validated
+     * @param elo the calculated updated Elo rating
+     * @return the updated Elo rating, ensuring it is greater than or equal to 0
      */
-    private void assertEloGreaterThan0(double elo) {
-        if (elo > 0d) {
-            return;
-        }
-        elo = 0d;
+    private double getZeroIfUpdatedEloIsLessThan0(double elo) {
+        return elo > 0 ? elo : 0;
     }
 }
