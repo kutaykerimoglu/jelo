@@ -65,8 +65,9 @@ public class SimpleEloEngine {
      * @param elo the Elo rating to be validated
      */
     private void assertEloGreaterThan0(double elo) {
-        if (elo < 0d) {
-            elo = 0d;
+        if (elo > 0d) {
+            return;
         }
+        elo = 0d;
     }
 }
